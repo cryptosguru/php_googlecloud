@@ -1,0 +1,6 @@
+# Use the PHP 7.3 runtime
+runtime: php73
+
+# Defaults to "serve index.php" if not specified
+entrypoint: serve simpleform.php
+

@@ -1,0 +1,91 @@
+:root {
+  --midnightgreen: #114b5f;
+  --queenblue: #456990;
+  --metallicseaweed: #028090;
+  --fieryrose: #f45b69;
+  --platinum: #e9e3e6;
+  --nyanza: #e4fde1;
+}
+
+body {
+  font-size: 20px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: var(--queenblue);
+}
+
+#sidebar {
+  width: 20%;
+  background-color: var(--midnightgreen);
+}
+
+#usernamedisplay {
+  text-align: center;
+  margin-right: 50px;
+  color: white;
+}
+
+.active {
+  background-color: var(--metallicseaweed) !important;
+  color: white;
+}
+
+.active:hover {
+  background-color: var(--platinum) !important;
+  color: var(--fieryrose) !important;
+  text-decoration: none;
+}
+
+.sidenavbutton {
+  color: var(--platinum);
+}
+
+.sidenavbutton:hover {
+  background-color: var(--platinum) !important;
+  color: var(--fieryrose) !important;
+  text-decoration: none;
+}
+
+.topnav {
+  background-color: var(--queenblue) !important;
+  color: white;
+}
+
+.topnav a:hover {
+  color: var(--fieryrose);
+}
+
+#datatable {
+  margin-top: 5%;
+  margin-left: 30%;
+  max-width: 70%;
+}
+
+.tableheadrow {
+  background-color: var(--platinum);
+}
+
+.addbutton:hover {
+  background-color: var(--midnightgreen);
+  color: var(--fieryrose);
+}
+
+.addbutton {
+  background-color: var(--metallicseaweed);
+  color: white;
+  min-width: 80px;
+}
+
+.logoutbutton {
+  width: 140px;
+}
+
+.icon {
+  max-width: 15px;
+}
+
+#loginsection {
+  margin-top: 5%;
+  margin-left: 25%;
+  margin-right: 25%;
+}
