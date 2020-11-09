@@ -16,6 +16,7 @@ body {
 
 #sidebar {
   width: 20%;
+  top: 60px;
   background-color: var(--midnightgreen);
 }
 
@@ -49,16 +50,19 @@ body {
 .topnav {
   background-color: var(--queenblue) !important;
   color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .topnav a:hover {
   color: var(--fieryrose);
 }
 
-#datatable {
+#tablecontainer {
   margin-top: 5%;
   margin-left: 30%;
-  max-width: 70%;
+  max-width: 60%;
 }
 
 .tableheadrow {
@@ -88,4 +92,22 @@ body {
   margin-top: 5%;
   margin-left: 25%;
   margin-right: 25%;
+}
+
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.form-inline-item-15 {
+  margin-right: 15px;
+}
+
+.form-inline-item-30 {
+  margin-right: 30px;
+}
+
+#tablecategoryform {
+  margin-bottom: 20px;
 }

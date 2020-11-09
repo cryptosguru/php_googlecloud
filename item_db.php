@@ -1,11 +1,5 @@
 <?php 
 
-// CREATE TABLE friends (
-//    name varchar(30) NOT NULL,
-//    major varchar(10) NOT NULL,
-//    year int NOT NULL,
-//    PRIMARY KEY (name) );  
-
 // Prepared statement (or parameterized statement) happens in 2 phases:
 //   1. prepare() sends a template to the server, the server analyzes the syntax
 //                and initialize the internal structure.
@@ -19,10 +13,10 @@
 //      execute() actually executes the SQL statement
 
 
-function getAllFriends()
+function getAllItems()
 {
     global $db;
-    $query = "SELECT * FROM friends";
+    $query = "SELECT * FROM item_list";
     $statement = $db->prepare($query);
     $statement->execute();
     $results = $statement->fetchAll(); //array
@@ -30,7 +24,7 @@ function getAllFriends()
     return $results;
 }
 
-function addFriend($name, $major, $year)
+function addItemToShoppingList($name, $major, $year)
 {
     global $db;
 
