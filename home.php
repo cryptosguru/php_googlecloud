@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <nav class="navbar bg-light topnav">
-        <a href="home.php" class="navbar-brand"><img src="favicon.ico" class="icon"> GrocerEase </a>
+        <a href="home.php" class="navbar-brand"><img src="logowide.png" height="35" /></a>
 
         <form class="form-inline">
             <span class="navbar-text" id="usernamedisplay">
