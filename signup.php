@@ -20,25 +20,25 @@
         <a href="login.php" class="navbar-brand"><img src="favicon.ico" class="icon"> GrocerEase </a>
     </nav>
     <div id="loginsection">
-        <h1>Log in</h1>
+        <h1>Sign up</h1>
         <br>
         <form name="mainForm" action="" method="post">
             <div class="form-group">
-                Username:
+                Create a username:
                 <input type="text" class="form-control" name="username" required />
             </div>
             <div class="form-group">
-                Password:
+                Create a password (8 characters minimum):
                 <input type="password" class="form-control" name="password" required minlength="8" />
             </div>
             <br>
-            <a href="home.php" class="btn logoutbutton addbutton"> Log in </a>
-            <!-- <input id="loginbutton" type="submit" value="Log in" name="action" class="btn addbutton"
-                title="Insert a friend into a friends table" /> -->
+            <!-- <a href="home.php" class="btn logoutbutton addbutton"> Sign up </a> -->
+            <input id="loginbutton" type="submit" value="Sign up" name="action" class="btn logoutbutton addbutton"
+                title="Insert a friend into a friends table" />
         </form>
         <br>
         <br>
-        <a href="signup.php"> New to GrocerEase? Click to sign up!</a>
+        <a href="login.php"> Already a member? Click here to log in!</a>
 
     </div>
 </body>
