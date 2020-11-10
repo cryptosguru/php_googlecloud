@@ -56,14 +56,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <input type="text" id="itemnameinput" name="itemnameinput" class="form-inline-item-30">
             <label for="itemcategoryinput" class="form-inline-item-15">Item category:</label>
             <select id="itemcategoryinput" name="cars" class="form-inline-item-30">
-                <option value="volvo">Fruit</option>
-                <option value="saab">Vegetables</option>
-                <option value="fiat">Beverages</option>
-                <option value="volvo">Grains</option>
-                <option value="saab">Dairy</option>
-                <option value="fiat">Meat</option>
-                <option value="audi">Household</option>
-                <option value="audi">Other</option>
+                <option value="Fruit">Fruit</option>
+                <option value="Vegetables">Vegetables</option>
+                <option value="Beverages">Beverages</option>
+                <option value="Grains">Grains</option>
+                <option value="Dairy">Dairy</option>
+                <option value="Meat">Meat</option>
+                <option value="Household">Household</option>
+                <option value="Other">Other</option>
             </select>
             <input type="submit" value="Add item to All Foods" name="action" class="btn addbutton" />
         </form>
@@ -73,15 +73,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <form name="" action="" method="post" class="form-inline" id="tablecategoryform">
             <label for="tablecategory" class="form-inline-item-15">Filter by category:</label>
             <select id="tablecategory" name="cars">
-                <option value="volvo">All Foods</option>
-                <option value="volvo">Fruit</option>
-                <option value="saab">Vegetables</option>
-                <option value="fiat">Beverages</option>
-                <option value="volvo">Grains</option>
-                <option value="saab">Dairy</option>
-                <option value="fiat">Meat</option>
-                <option value="audi">Household</option>
-                <option value="audi">Other</option>
+                <option value="All Foods">All Foods</option>
+                <option value="Fruit">Fruit</option>
+                <option value="Vegetables">Vegetables</option>
+                <option value="Beverages">Beverages</option>
+                <option value="Grains">Grains</option>
+                <option value="Dairy">Dairy</option>
+                <option value="Meat">Meat</option>
+                <option value="Household">Household</option>
+                <option value="Other">Other</option>
             </select>
         </form>
         <table class="w3-table w3-bordered w3-card-4">
