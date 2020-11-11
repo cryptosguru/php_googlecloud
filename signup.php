@@ -1,3 +1,21 @@
+<?php
+    require ('connectdb.php');
+    require ('signup_db_functions.php');
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (!empty($_POST['signup']) && $_POST['signup'] == 'Sign up') {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+                
+            if (signUp($username, $password)) {
+                session_start();
+                $_SESSION['username'] = $username;
+                header("Location: home.php");
+            }
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -32,9 +50,8 @@
                 <input type="password" class="form-control" name="password" required minlength="8" />
             </div>
             <br>
-            <a href="home.php" class="btn logoutbutton addbutton"> Sign up </a>
-            <!-- <input id="loginbutton" type="submit" value="Sign up" name="action" class="btn logoutbutton addbutton"
-                title="Insert a friend into a friends table" /> -->
+            <input id="loginbutton" type="submit" value="Sign up" name="signup" class="btn logoutbutton addbutton"
+                title="Insert a friend into a friends table" />
         </form>
         <br>
         <br>
