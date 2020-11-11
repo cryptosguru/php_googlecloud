@@ -12,9 +12,7 @@
 //                Thus, be sure to match the name; a mismatch is ignored.
 //      execute() actually executes the SQL statement
 
-
-function getAllItems()
-{
+function getAllItems() {
     global $db;
     $query = "SELECT * FROM item_list";
     $statement = $db->prepare($query);
@@ -24,8 +22,7 @@ function getAllItems()
     return $results;
 }
 
-function addItemToShoppingList($name, $major, $year)
-{
+function addItemToShoppingList($name, $major, $year) {
     global $db;
 
     $query = "INSERT INTO friends VALUES(:name, :major, :year)";
@@ -35,11 +32,6 @@ function addItemToShoppingList($name, $major, $year)
     $statement->bindValue(':year', $year);
     $statement->execute();
     $statement->closeCursor();    
-}
-   
-function getFriendInfo_by_name($name)
-{
-	//already shown in table
 }
 
 function updateFriend($name, $major, $year)

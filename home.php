@@ -1,18 +1,31 @@
 <?php
 require ('connectdb.php');
-require ('item_db.php');
+require ('home_db_functions.php');
 
-$items = getAllitems();
+session_start();
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  // if (!empty($_POST['action']) && $_POST['action'] == 'Add') {
-  //   additem($_POST['name'], $_POST['major'], $_POST['year']);
-  //   $items = getAllitems();
-  // }
-  // elseif (!empty($_POST['action']) && $_POST['add_shopping_list'] == 'Add') {
-  //   addItemToShoppingList($name, $major, $year)
-  // }
+if(!isset($_SESSION['username'])) {
+     header("Location: login.php");
+    //header("Location:http://example.com/login.php"); Change for Google Cloud
 }
+//session has started sucessfully
+else { 
+    $items = getAllitems();
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        echo "<br><br><br><br><br><br><br><br>made 9";
+        if (!empty($_POST['logout']) && $_POST['logout'] == 'Log out') {
+            session_destroy();
+            header("Location: login.php");
+        }
+
+    // if (!empty($_POST['action']) && $_POST['action'] == 'Add') {
+    //   additem($_POST['name'], $_POST['major'], $_POST['year']);
+    //   $items = getAllitems();
+    // }
+    // elseif (!empty($_POST['action']) && $_POST['add_shopping_list'] == 'Add') {
+    //   addItemToShoppingList($name, $major, $year)
+    // }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -28,19 +41,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
     <nav class="navbar bg-light topnav">
         <a href="home.php" class="navbar-brand"><img src="logowide.png" height="35" /></a>
 
-        <form class="form-inline">
+        <form class="form-inline" name="logoutForm" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
             <span class="navbar-text" id="usernamedisplay">
-                Welcome user56
+                Welcome <?php echo $_SESSION['username'] ?>
             </span>
             <span>
-                <a href="login.php" class="btn logoutbutton addbutton"> Log out </a>
+                <input id="logoutbutton" type="submit" value="Log out" name="logout"
+                    class="btn logoutbutton addbutton" />
             </span>
         </form>
     </nav>
@@ -123,3 +137,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </body>
 
 </html>
+
+<?php } ?>

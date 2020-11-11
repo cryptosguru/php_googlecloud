@@ -1,3 +1,25 @@
+<?php
+    require ('connectdb.php');
+    require ('login_db_functions.php');
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (!empty($_POST['login']) && $_POST['login'] == 'Log in') {
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+                
+            if (logIn($username, $password)) {
+                session_start();
+                $_SESSION['username'] = $username;
+                header("Location: home.php");
+            }
+            else {
+                echo '<p style="color:red; position:absolute; top:550px; margin-left:25%;">The username or password does not exist. Please try again. </p>';
+            }
+        }
+    }
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -11,7 +33,7 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -22,7 +44,7 @@
     <div id="loginsection">
         <h1>Log in</h1>
         <br>
-        <form name="mainForm" action="" method="post">
+        <form name="mainForm" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
             <div class="form-group">
                 Username:
                 <input type="text" class="form-control" name="username" required />
@@ -32,9 +54,7 @@
                 <input type="password" class="form-control" name="password" required minlength="8" />
             </div>
             <br>
-            <a href="home.php" class="btn logoutbutton addbutton"> Log in </a>
-            <!-- <input id="loginbutton" type="submit" value="Log in" name="action" class="btn addbutton"
-                title="Insert a friend into a friends table" /> -->
+            <input type="submit" value="Log in" name="login" class="btn logoutbutton addbutton" />
         </form>
         <br>
         <br>
