@@ -98,14 +98,14 @@ else {
             <label for="tablecategory" class="form-inline-item-15">Filter by category:</label>
             <select id="tablecategory" name="cars">
                 <option value="All Foods">All Foods</option>
-                <option value="Fruit">Fruit</option>
-                <option value="Vegetables">Vegetables</option>
-                <option value="Beverages">Beverages</option>
-                <option value="Grains">Grains</option>
-                <option value="Dairy">Dairy</option>
-                <option value="Meat">Meat</option>
-                <option value="Household">Household</option>
-                <option value="Other">Other</option>
+                <option value="Fruit"<?php echo (isset($_POST['category']) && $_POST['category'] === 'Fruit') ? 'selected' : ''; ?>>Fruit</option>
+                <option value="Vegetables"<?php echo (isset($_POST['category']) && $_POST['category'] === 'Vegetables') ? 'selected' : ''; ?>>Vegetables</option>
+                <option value="Beverages"<?php echo (isset($_POST['category']) && $_POST['category'] === 'Beverages') ? 'selected' : ''; ?>>Beverages</option>
+                <option value="Grains"<?php echo (isset($_POST['category']) && $_POST['category'] === 'Grains') ? 'selected' : ''; ?>>Grains</option>
+                <option value="Dairy"<?php echo (isset($_POST['category']) && $_POST['category'] === 'Dairy') ? 'selected' : ''; ?>>Dairy</option>
+                <option value="Meat"<?php echo (isset($_POST['category']) && $_POST['category'] === 'Meat') ? 'selected' : ''; ?>>Meat</option>
+                <option value="Household"<?php echo (isset($_POST['category']) && $_POST['category'] === 'Household') ? 'selected' : ''; ?>>Household</option>
+                <option value="Other"<?php echo (isset($_POST['category']) && $_POST['category'] === 'Other') ? 'selected' : ''; ?>>Other</option>
             </select>
         </form>
         <table class="w3-table w3-bordered w3-card-4">
