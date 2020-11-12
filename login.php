@@ -6,7 +6,7 @@
         if (!empty($_POST['login']) && $_POST['login'] == 'Log in') {
             $username = $_POST['username'];
             $password = $_POST['password'];
-                
+    
             if (logIn($username, $password)) {
                 session_start();
                 $_SESSION['username'] = $username;

@@ -12,7 +12,6 @@ if(!isset($_SESSION['username'])) {
 else { 
     $items = getAllitems();
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        echo "<br><br><br><br><br><br><br><br>made 9";
         if (!empty($_POST['logout']) && $_POST['logout'] == 'Log out') {
             session_destroy();
             header("Location: login.php");
@@ -25,6 +24,17 @@ else {
     // elseif (!empty($_POST['action']) && $_POST['add_shopping_list'] == 'Add') {
     //   addItemToShoppingList($name, $major, $year)
     // }
+
+        elseif (!empty($_POST['addItem']) && ($_POST['addItem'] == 'Add item to All Foods')) {      
+            $itemnameinput = $_POST['itemnameinput']; 
+            $itemcategoryinput = $_POST['itemcategoryinput'];  
+            
+            if (addItemToAllFoods($itemnameinput, $itemcategoryinput)) {
+                $items = getAllItems();    
+            }    
+            
+        }
+        
     }
 ?>
 
@@ -65,11 +75,11 @@ else {
     </div>
     <div id="tablecontainer">
         <h1>Add item</h1>
-        <form class="form-inline" action="/action_page.php">
+        <form name="addItemForm" class="form-inline" action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
             <label for="itemnameinput" class="form-inline-item-15">Item name:</label>
-            <input type="text" id="itemnameinput" name="itemnameinput" class="form-inline-item-30">
+            <input type="text" name="itemnameinput" class="form-inline-item-30">
             <label for="itemcategoryinput" class="form-inline-item-15">Item category:</label>
-            <select id="itemcategoryinput" name="cars" class="form-inline-item-30">
+            <select name="itemcategoryinput" class="form-inline-item-30">
                 <option value="Fruit">Fruit</option>
                 <option value="Vegetables">Vegetables</option>
                 <option value="Beverages">Beverages</option>
@@ -79,7 +89,7 @@ else {
                 <option value="Household">Household</option>
                 <option value="Other">Other</option>
             </select>
-            <input type="submit" value="Add item to All Foods" name="action" class="btn addbutton" />
+            <input type="submit" value="Add item to All Foods" name="addItem" class="btn addbutton" />
         </form>
         <hr>
         </hr>
@@ -110,21 +120,21 @@ else {
             <?php foreach ($items as $item): ?>
             <tr>
                 <td>
-                    <? echo $item['name']; ?>
+                    <?php echo $item['name']; ?>
                 </td>
                 <td>
-                    <? echo $item['catagory']; ?>
+                    <?php echo $item['catagory']; ?>
                 </td>
                 <td>
                     <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
-                        <input type="submit" value="Add" name="add_inventory" class="btn addbutton"
+                        <input type="submit" value="Add 1" name="add_inventory" class="btn addbutton"
                             title="Update the record" />
                         <input type="hidden" name="item_to_update" value="name_of_item_to_update" />
                     </form>
                 </td>
                 <td>
                     <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
-                        <input type="submit" value="Add" name="add_shopping_list" class="btn addbutton" />
+                        <input type="submit" value="Add 1" name="add_shopping_list" class="btn addbutton" />
                         <input type="hidden" name="item_name_shopping_list" value="<?php echo $item['name'] ?>" />
                         <input type="hidden" name="item_category_shopping_list"
                             value="<?php echo $item['catagory'] ?>" />
