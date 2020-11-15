@@ -39,7 +39,7 @@
 <body>
 
     <nav class="navbar bg-light topnav">
-        <a href="login.php" class="navbar-brand"><img src="favicon.ico" class="icon"> GrocerEase </a>
+        <a href="login.php" class="navbar-brand"><img src="logowide.png" height="35" /></a>
     </nav>
     <div id="loginsection">
         <h1>Log in</h1>
