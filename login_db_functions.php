@@ -4,15 +4,14 @@ function logIn($username, $password) {
     global $db;
 
     $authenticated = false;
-    $query = "SELECT * FROM login WHERE username=:username AND password=:password LIMIT 1;";
+    $query = "SELECT * FROM login WHERE username=:username LIMIT 1;";
     $statement = $db->prepare($query);
     $statement->bindValue(':username', $username);
-    $statement->bindValue(':password', $password);
     $statement->execute();
-    $results = $statement->fetchAll(); //array
-    if (count($results) == 1) {
+    $results = $statement->fetch(PDO::FETCH_ASSOC); //array
+    if (password_verify($password, $results['password'])) {
         $authenticated = true;
-        updateLogInTime($username, $password);
+        updateLogInTime($username, $results['password']);
     }
 
     $statement->closeCursor(); 

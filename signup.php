@@ -6,8 +6,9 @@
         if (!empty($_POST['signup']) && $_POST['signup'] == 'Sign up') {
             $username = $_POST['username'];
             $password = $_POST['password'];
-                
-            if (signUp($username, $password)) {
+            $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+            if (signUp($username, $hashed_password)) {
                 session_start();
                 $_SESSION['username'] = $username;
                 header("Location: home.php");
