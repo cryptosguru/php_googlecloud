@@ -16,5 +16,3 @@ too.
 All with MySQL calls should be in the format: nameofpage_db_functions.php.
 
 The front end is based off of POTD 5.
-
-Link to app (works while GCP free trial lasts): https://grocerease-293115.uk.r.appspot.com/
